@@ -1,0 +1,17 @@
+<h1><FONT FACE="arial" SIZE=40>Lista de Post</FONT> </h1>
+	<ul class="thumbnails" id="posts">
+	<% @posts.each do |post| %>
+
+	<div id="pots">
+	<li class="span3">
+	<div class="caption">
+
+<h4> <%= link_to post.comentario, post %></h4>
+
+	
+	</div>
+	</li>
+	</div>
+	<% end %>
+	</ul>
+	
