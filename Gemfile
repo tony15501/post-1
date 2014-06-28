@@ -1,4 +1,6 @@
 source 'https://rubygems.org'
+#Awesome print
+gem "awesome_print", "1.2.0"
 #devise
 gem 'devise', '3.0.0'
 #paginacion

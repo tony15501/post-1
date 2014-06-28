@@ -1,18 +1,20 @@
+	<center>
 <h2>Sign up</h2>
 
 <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
 
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email, :autofocus => true %></div>
+  <div><%= f.label :Correo %><br />
+  <%= f.email_field :email, :autofocus => true, :class => 'input-small', :placeholder =>"Correo"  %></div>
 
-  <div><%= f.label :password %><br />
-  <%= f.password_field :password %></div>
+  <div><%= f.label :Contraseña %><br />
+  <%= f.password_field :password, :placeholder =>"Contraseña" %></div>
 
-  <div><%= f.label :password_confirmation %><br />
-  <%= f.password_field :password_confirmation %></div>
+  <div><%= f.label :Confirmar_contraseña %><br />
+  <%= f.password_field :password_confirmation, :placeholder =>"Contraseña" %></div><br />
 
-  <div><%= f.submit "Sign up" %></div>
+  <div><%= f.submit "Sign up", :class => 'btn' %></div>
 <% end %>
 
 <%= render "devise/shared/links" %>
+</center>

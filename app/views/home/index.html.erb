@@ -1,17 +1,20 @@
+<%- model_class = Post -%>
 <h1><FONT FACE="arial" SIZE=40>Lista de Post</FONT> </h1>
-	<ul class="thumbnails" id="posts">
-	<% @posts.each do |post| %>
 
-	<div id="pots">
-	<li class="span3">
-	<div class="caption">
+<% @posts.each do |post| %>
+<table>
+	<td><%= link_to post.id, post_path(post) %></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td><%= link_to post.comentario, post %></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td> Usuario:</td>
+	<td></td>
+	<td><%= post.user.email %></td>
+</table>
 
-<h4> <%= link_to post.comentario, post %></h4>
-
-	
-	</div>
-	</li>
-	</div>
-	<% end %>
-	</ul>
-	
+<% end %>
