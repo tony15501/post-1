@@ -12,12 +12,15 @@
 	<ul class="nav navbar-nav ">
 	<li>  <%= link_to 'Inicio', root_path %></li>
 	<li>  <%= link_to 'Nuevo Posts', new_post_path %></li>
+	<li>  <%= link_to 'Deja tu comentario en un post', comments_path %></li>
+	<li>  <%= link_to 'Lista de usuarios', users_path %></li>
+	
 	</ul>
 	<ul class="nav navbar-nav navbar-right">
 
 	<p class="navbar-text">Benvenido:
 			<li><% if user_signed_in? %></li>
-	<li class="navbar-text"> <%= current_user.email%></li>
+	<li class="navbar-text"> <%= current_user.nombre%></li>
 	<li><%= link_to 'Cerrar sesion', destroy_user_session_path, method: :delete %></li>
 	<% else %>
 	<li> <%= link_to 'Si ya tienes cuenta: Logueate', new_user_session_path %></li>
@@ -28,7 +31,20 @@
 	</div>
 
 	</nav>
-	<%= yield %>
+	</p>
+	</ul>
+	</div>
+	</nav>
+
+	<!-- <p ><%=notice  %></p>
+	<p ><%= alert %></p> -->
+	 
+	<div class="span9">
+	
+            <%= bootstrap_flash %>
+            <%= yield %>
+          </div>
+          
 
 	</body>
 	</html>

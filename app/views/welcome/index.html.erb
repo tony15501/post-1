@@ -21,29 +21,26 @@
       <th><%= model_class.human_attribute_name(:Comentario) %></th>
       <th><%= model_class.human_attribute_name(:Usuario) %></th>
       
-      <th><%= model_class.human_attribute_name(:created_at) %></th>
-      <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
   <tbody>
+  <tr>
     <% @posts.each do |post| %>
-      <tr>
+
+     
+      
         <td><%= link_to post.id, post_path(post) %></td>
         <td><%= post.titulo %></td>
         <td><%= post.comentario %></td>
-        <td><%= link_to post.user.email, users_path %></td>
-        <td><%=l post.created_at %></td>
-        <td>
+        <td><%=  post.user.nombre %></td>
+        <td><%= link_to 'Dejar un comentario', new_comment_path %></td>
         
-          <%= link_to t('.edit', :default => t("helpers.links.edit")),
-                      edit_post_path(post), :class => 'btn btn-mini' %>
-          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-                      post_path(post),
-                      :method => :delete,
-                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
-                      :class => 'btn btn-mini btn-danger' %>
-        </td>
+        
+     
+       
+        
       </tr>
+
     <% end %>
   </tbody>
 </table>

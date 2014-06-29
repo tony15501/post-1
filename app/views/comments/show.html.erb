@@ -1,19 +1,25 @@
-<p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Comment:</strong>
-  <%= @comment.comment %>
-</p>
 
-<p>
-  <strong>Post:</strong>
-  <%= @comment.post_id %>
-</p>
+<%- model_class = Comment -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
+</div>
 
-<p>
-  <strong>User:</strong>
-  <%= @comment.user_id %>
-</p>
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:Comentrio) %>:</strong></dt>
+  <dd><%= @comment.comment %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:Post) %>:</strong></dt>
+  <dd><%= @comment.post.titulo %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:Email_del_usuario) %>:</strong></dt>
+  <dd><%= @comment.user.email%></dd>
 
-<%= link_to 'Edit', edit_comment_path(@comment) %> |
-<%= link_to 'Back', comments_path %>
+  
+</dl>
+
+<div class="form-actions">
+  <%= link_to t('.back', :default => t("helpers.links.back")),
+              root_path, :class => 'btn'  %>
+            
+
+  
+</div>

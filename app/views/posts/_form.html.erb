@@ -1,4 +1,19 @@
+<center>
+<% if @post.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@post.errors.count, "error") %> No debe estar vacíos los campos!!:</h2>
+
+      <ul>
+      <% @post.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
 <%= form_for @post, :html => { :class => 'form-horizontal' } do |f| %>
+
   <div class="control-group">
     <%= f.label :titulo, :class => 'control-label' %>
     <div class="controls">
@@ -11,11 +26,9 @@
       <%= f.text_field :comentario, :class => 'text_field' %>
     </div>
   </div>
-  <div class="control-group">
-    <%= f.label :user_id, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :user_id, :class => 'text_field' %>
-    </div>
+  <div class="field">
+    <%= f.label :Escoge_tu_nombre_de_usuario %><br>
+    <%= f.collection_select :user_id, User.all, :id, :nombre %>
   </div>
 
   <div class="form-actions">
@@ -24,3 +37,4 @@
                 root_path, :class => 'btn' %>
   </div>
 <% end %>
+</center>

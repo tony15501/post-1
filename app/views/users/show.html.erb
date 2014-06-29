@@ -1,26 +1,40 @@
+<%- model_class = User -%>
+<div class="page-header">
+  <h1>Perfil y Post del Usuario </h1>
+</div>
 
+<dl class="dl-horizontal">
+ <dt><strong><%= model_class.human_attribute_name(:Usuario) %>:</strong></dt>
+  <dd><%= @user.nombre %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:Apellidos) %>:</strong></dt>
+  <dd><%= @user.apellidos %></dd>
 
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Usuario:</strong>
-  <%= @user.email %>
-</p>
-
-<p>
-  <strong>Contraseña:</strong>
-  <%= @user.encrypted_password %>
-</p>
-
+  <dt><strong><%= model_class.human_attribute_name(:Email) %>:</strong></dt>
+  <dd><%= @user.email %></dd>
+  
+  <dt><strong><%= model_class.human_attribute_name(:Contraseña) %>:</strong></dt>
+  <dd><%= @user.encrypted_password %></dd>
+ 
 <p>
   <% if @user.posts.empty?%>
   No hay post registrados
   <%else%>
+    <h4>Post escritos por el Usuario: <%= @user.nombre %></h4>
   <% @user.posts.each do |t|%>
-  Post: <%= link_to t.titulo, t %>
+
+  <h3>Post: <%= link_to t.titulo, t %></h3>
     <% end %>
   <%end%>
 
 </p>
-<%= link_to 'Back', users_path %>
+  
+</dl>
+
+<div class="form-actions">
+  <%= link_to t('.back', :default => t("helpers.links.back")),
+              root_path, :class => 'btn'  %>
+            </div>
+
+  
+
 

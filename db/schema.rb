@@ -24,8 +24,8 @@ ActiveRecord::Schema.define(version: 20140628165205) do
     t.datetime "updated_at"
   end
 
-  add_index "comments", ["post_id"], name: "index_comments_on_post_id", unique: true, using: :btree
-  add_index "comments", ["user_id"], name: "index_comments_on_user_id", unique: true, using: :btree
+  add_index "comments", ["post_id"], name: "index_comments_on_post_id", using: :btree
+  add_index "comments", ["user_id"], name: "index_comments_on_user_id", using: :btree
 
   create_table "posts", force: true do |t|
     t.string   "titulo"
@@ -40,6 +40,8 @@ ActiveRecord::Schema.define(version: 20140628165205) do
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
+    t.string   "nombre",                 default: "", null: false
+    t.string   "apellidos",              default: "", null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"

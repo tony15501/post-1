@@ -15,7 +15,7 @@
 		
 		<p class="navbar-text">Benvenido:
 				<li><% if user_signed_in? %></li>
-		<li class="navbar-text"> <%= current_user.email%></li>
+		<li class="navbar-text"> <%= current_user.nombre%></li>
 		<li><%= link_to 'Cerrar sesion', destroy_user_session_path, method: :delete %></li>
 		<% else %>
 		<li><%= link_to 'crea una cuenta', new_user_registration_path %></li>
@@ -27,7 +27,11 @@
 </div>
 	
 </nav>
-<%= yield %>
+<div class="span9">
+	
+            <%= bootstrap_flash %>
+            <%= yield %>
+          </div>
 
 </body>
 </html>

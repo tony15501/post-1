@@ -1,29 +1,41 @@
-<h1>Listing comments</h1>
+<%- model_class = Comment-%>
 
+<div class="page-header">
 <table>
+  <tr>
+    <th><h1> Lista de comentarios</h1></th>
+    <th></th>
+    <th></th>
+    <th></th>
+    <th><%= link_to t('.new', :default => t("helpers.links.new")),
+            new_comment_path,
+            :class => 'btn btn-primary' %></th>
+    </th>
+    
+</table>
+  
+</div>
+
+<table class="table table-condensed">
   <thead>
     <tr>
-      <th>Comment</th>
-      <th>Post</th>
-      <th>User</th>
-      <th colspan="3"></th>
+      <th><%= model_class.human_attribute_name('Comentarios') %></th>
+      <th><%= model_class.human_attribute_name(:Post) %></th>
+      <th><%= model_class.human_attribute_name(:Email_del_Usuario) %></th>
+      
+      
     </tr>
   </thead>
-
   <tbody>
     <% @comments.each do |comment| %>
       <tr>
         <td><%= comment.comment %></td>
-        <td><%= comment.post_id %></td>
-        <td><%= comment.user_id %></td>
+        <td><%= comment.post.titulo %></td>
+        <td><%= comment.user.email %></td>
         <td><%= link_to 'Show', comment %></td>
-        <td><%= link_to 'Edit', edit_comment_path(comment) %></td>
-        <td><%= link_to 'Destroy', comment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <!-- <td><%= link_to 'Edit', edit_comment_path(comment) %></td>
+        <td><%= link_to 'Destroy', comment, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
       </tr>
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Comment', new_comment_path %>
