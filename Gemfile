@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+gem 'rails_12factor', '0.0.2'
 #Awesome print
 gem "awesome_print", "1.2.0"
 #devise
