@@ -1,0 +1,26 @@
+
+
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Usuario:</strong>
+  <%= @user.email %>
+</p>
+
+<p>
+  <strong>Contraseña:</strong>
+  <%= @user.encrypted_password %>
+</p>
+
+<p>
+  <% if @user.posts.empty?%>
+  No hay post registrados
+  <%else%>
+  <% @user.posts.each do |t|%>
+  Post: <%= link_to t.titulo, t %>
+    <% end %>
+  <%end%>
+
+</p>
+<%= link_to 'Back', users_path %>
+

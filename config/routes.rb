@@ -1,10 +1,14 @@
 Rails.application.routes.draw do
+
+
   get 'home/index'
   devise_for :users
   get 'welcome/index'
 
   resources :posts
   resources :comments
+  resources :users
+
   
 
   # The priority is based upon order of creation: first created -> highest priority.

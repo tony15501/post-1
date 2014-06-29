@@ -31,7 +31,7 @@
         <td><%= link_to post.id, post_path(post) %></td>
         <td><%= post.titulo %></td>
         <td><%= post.comentario %></td>
-        <td><%= post.user.email %></td>
+        <td><%= link_to post.user.email, users_path %></td>
         <td><%=l post.created_at %></td>
         <td>
         

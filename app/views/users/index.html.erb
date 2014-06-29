@@ -1,0 +1,30 @@
+<h1>Lista de  Usiarios</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Usurio</th>
+      <th>Contraseña</th>
+      <th>Número de post</th>
+      <th>Perfil </th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @users.each do |c| %>
+      <tr>
+        <td><%= c.email%></td>
+        <td><%= c.encrypted_password %></td>
+        <td><%= c.posts.count  %></td>
+        <td><%= link_to 'Mostrar perfil', c %></td>
+        
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+
+
