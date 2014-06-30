@@ -1,20 +1,42 @@
 <%- model_class = Post -%>
-<h1><FONT FACE="arial" SIZE=40>Lista de Post</FONT> </h1>
 
-<% @posts.each do |post| %>
+<div class="page-header">
 <table>
-	<td><%= link_to post.id, post_path(post) %></td>
-	<td></td>
-	<td></td>
-	<td></td>
-	<td><%= link_to post.comentario, post %></td>
-	<td></td>
-	<td></td>
-	<td></td>
-	<td></td>
-	<td> Usuario:</td>
-	<td></td>
-	<td><%= post.user.email %></td>
+  <tr>
+    <th><h1> Lista de post</h1></th>
+    <th></th>
+    <th></th>
+    <th></th>
+    <th></th>
+    </th>
+    
+</table>
+  
+</div>
+<table class="table table-condensed">
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name('#') %></th>
+      <th><%= model_class.human_attribute_name(:Titulo) %></th>
+      <th><%= model_class.human_attribute_name(:Comentario) %></th>
+      <th><%= model_class.human_attribute_name(:Usuario) %></th>
+      
+    </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <% @posts.each do |post| %>
+
+        <td><%= link_to post.id, post_path(post) %></td>
+        <td><%= post.titulo %></td>
+        <td><%= post.comentario %></td>
+        <td><%=  post.user.nombre %></td>
+        <td><%= link_to 'Dejar un comentario', new_comment_path %></td>
+     
+      </tr>
+
+    <% end %>
+  </tbody>
 </table>
 
-<% end %>
+

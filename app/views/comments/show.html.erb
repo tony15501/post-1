@@ -10,15 +10,15 @@
   <dd><%= @comment.comment %></dd>
   <dt><strong><%= model_class.human_attribute_name(:Post) %>:</strong></dt>
   <dd><%= @comment.post.titulo %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:Email_del_usuario) %>:</strong></dt>
-  <dd><%= @comment.user.email%></dd>
+  <dt><strong><%= model_class.human_attribute_name(:Nombre_del_usuario) %>:</strong></dt>
+  <dd><%= @comment.user.nombre%></dd>
 
   
 </dl>
 
 <div class="form-actions">
   <%= link_to t('.back', :default => t("helpers.links.back")),
-              root_path, :class => 'btn'  %>
+              comments_path, :class => 'btn'  %>
             
 
   
